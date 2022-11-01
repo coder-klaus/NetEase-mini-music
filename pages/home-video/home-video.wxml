@@ -1,0 +1,4 @@
+<view class="top-mvs">
+  <Mv class="mv" wx:for="{{ topMvs }}" wx:key="id" mv="{{ item }}" />
+  <view wx:if="{{ reachBottom }}" class="bottom-tip">到底了~</view>
+</view>

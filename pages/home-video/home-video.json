@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Mv": "/components/video/video"
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100
+}

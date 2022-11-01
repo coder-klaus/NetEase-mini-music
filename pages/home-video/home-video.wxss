@@ -1,0 +1,16 @@
+.top-mvs {
+  padding: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.top-mvs .mv {
+  width: 48%;
+}
+
+.bottom-tip {
+  margin: 0 auto;
+  color: #333;
+  font-size: 24rpx;
+}
