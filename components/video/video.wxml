@@ -1,6 +1,6 @@
 <wxs src='/utils/format.wxs' module="fmt"></wxs>
 
-<view class="mv">
+<view class="mv" bind:tap="handleTap">
   <view class="album">
     <image class="cover" mode="aspectFill" src="{{ mv.cover }}"></image>
     <view class="info">

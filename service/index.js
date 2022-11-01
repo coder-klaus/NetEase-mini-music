@@ -17,12 +17,12 @@ class Api {
     })
   }
 
-  get(options) {
-    return this.request({ ...options, method: "get" })
+  get(url = '', options) {
+    return this.request({ url, ...options, method: "get" })
   }
   
-  post(options) {
-    return this.request({ ...options, method: "post" })
+  post(url = '', options) {
+    return this.request({ url, ...options, method: "post" })
   }
 }
 

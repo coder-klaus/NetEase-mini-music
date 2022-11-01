@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/home-music/home-music",
-    "pages/home-video/home-video"
+    "pages/home-video/home-video",
+    "pages/video-detail/video-detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
