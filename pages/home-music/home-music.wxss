@@ -1,1 +1,14 @@
-/* pages/home-music/index.wxss */
+page {
+  --search-padding: 10px 0;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.swiper {
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.swiper-image {
+  width: 100%;
+}

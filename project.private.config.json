@@ -5,17 +5,5 @@
     "compileHotReLoad": true,
     "urlCheck": true
   },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "",
-          "pathName": "pages/video-detail/video-detail",
-          "query": "id=14575131",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
-  }
+  "condition": {}
 }

@@ -1,4 +1,4 @@
-<wxs src='/utils/format.wxs' module="fmt"></wxs>
+<wxs src='/wxs/format.wxs' module="fmt"></wxs>
 
 <view>
   <video src="{{ mvUrl }}" autoplay class="mv" />
@@ -6,7 +6,7 @@
   <view class="detail">
     <view class="title">{{ detail.name }}</view>
     <view class="name">{{ detail.artistName }}</view>  
-    <view class="desc">
+    <view wx:if="{{ detail.playCount }}" class="desc">
       {{ fmt.formatCount(detail.playCount) }}次播放 - {{ detail.publishTime }}
     </view>
   </view>
@@ -14,7 +14,7 @@
   <view class="recommend">
     <view class="recommend-title">推荐视频</view>
 
-    <view wx:for="{{ relatedVideos }}" wx:key="vid" class="video">
+    <view wx:for="{{ relatedVideos }}" wx:key="vid" class="video" bind:tap="handleRecommendTap" data-id="{{ item.vid }}">
       <view class="poster">
         <image src="{{ item.coverUrl }}" mode="aspectFill" />
         <view class="count">{{ fmt.formatCount(item.playTime) }}</view>

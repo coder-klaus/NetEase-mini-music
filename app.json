@@ -2,7 +2,8 @@
   "pages": [
     "pages/home-music/home-music",
     "pages/home-video/home-video",
-    "pages/video-detail/video-detail"
+    "pages/video-detail/video-detail",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -1,8 +1,13 @@
-<wxs src='/utils/format.wxs' module="fmt"></wxs>
+<wxs src='/wxs/format.wxs' module="fmt"></wxs>
 
 <view class="mv" bind:tap="handleTap">
   <view class="album">
-    <image class="cover" mode="aspectFill" src="{{ mv.cover }}"></image>
+    <image 
+      class="cover" 
+      mode="aspectFill" 
+      src="{{ mv.cover }}"
+    />
+    
     <view class="info">
       <span class="count">
         {{ fmt.formatCount(mv.playCount) }}

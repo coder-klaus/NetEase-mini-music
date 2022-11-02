@@ -2,5 +2,9 @@
 .vscode
 
 node_modules
+miniprogram_npm
+
 package-lock.json
 pnpm-lock.yaml
+
+project.private.config.json

@@ -1,4 +1,10 @@
-import { getMvVideoById, getMvDetailById, getRelatedVideosById } from '../../service/video'
+import { 
+  getMvVideoById, 
+  getMvDetailById, 
+  getRelatedVideosById,
+  getVideoById,
+  getVideoDetailById
+} from '../../service/video'
 
 Page({
   data: {
@@ -11,11 +17,19 @@ Page({
   onLoad(option) {
     this.setData({ id: option.id })
 
-    Promise.all([
-      this.fetchMv(), 
-      this.fetchMvDetailById(), 
-      this.fetchRelatedVideosById()
-    ])
+    if (!!option.relatedvideo) {
+      Promise.all([
+        this.fetchVideo(),
+        this.fetchVideoDetail(),
+        this.fetchRelatedVideosById()
+      ])
+    } else {
+      Promise.all([
+        this.fetchMv(), 
+        this.fetchMvDetailById(), 
+        this.fetchRelatedVideosById()
+      ])
+    }
   },
 
   async fetchMv() {
@@ -35,6 +49,31 @@ Page({
     const res = await getRelatedVideosById(this.data.id)
     this.setData({
       relatedVideos: res.data
+    })
+  },
+
+  async fetchVideo() {
+    const res = await getVideoById(this.data.id)
+
+    this.setData({
+      mvUrl: res.urls[0].url
+    })
+  },
+
+  async fetchVideoDetail() {
+    const res = await getVideoDetailById(this.data.id)
+    
+    this.setData({
+      detail: {
+        name: res.data.title,
+        artistName: res.data.creator.nickname
+      }
+    })
+  },
+
+  handleRecommendTap(e) {
+    wx.navigateTo({
+      url: `/pages/video-detail/video-detail?id=${e.currentTarget.dataset.id}&relatedvideo=true`
     })
   }
 })

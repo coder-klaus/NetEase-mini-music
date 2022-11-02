@@ -1,2 +1,30 @@
-<!--pages/home-music/index.wxml-->
-<text>pages/home-music/index.wxml</text>
+<van-search
+  value="{{ keyword }}"
+  input-align="center"
+  placeholder="搜索你喜欢的歌曲"
+  bind:click-input="onClick"
+  class="search"
+/>
+
+<swiper 
+  autoplay 
+  circular 
+  indicator-dots 
+  class="swiper"
+  style="height: {{ swiperHeight }}px"
+>
+  <swiper-item 
+     wx:for="{{ banners }}" 
+     wx:key="targetId" 
+     class="swiper-item"
+  >
+    <image 
+      src="{{ item.imageUrl }}" 
+      class="swiper-image" 
+      mode="widthFix" 
+      bind:load="handleImageLoad"  
+    />
+  </swiper-item>
+</swiper>
+
+<Recommend />
