@@ -1,4 +1,5 @@
 import { getBanners } from '../../service/video'
+import { getTopPlayList } from '../../service/song'
 import { querySelector } from '../../utils/index'
 
 Page({
@@ -6,11 +7,15 @@ Page({
     swiperHeight: 150,
     isInitSwiper: false,
     keyword: '',
-    banners: []
+    banners: [],
+    hotSongs: [],
+    popularSongs: [],
   },
 
   onLoad() {
     this.fetchBanners()
+    this.fetchHotSongMenu()
+    this.fetchPopularSongMenu()
   },
 
   async fetchBanners() {
@@ -32,6 +37,22 @@ Page({
     const { height } = await querySelector('.swiper-image')
     this.setData({
       swiperHeight: height
+    })
+  },
+
+  async fetchHotSongMenu() {
+    const res = await getTopPlayList()
+    this.setData({
+      hotSongs: res.playlists
+    })
+  },
+
+  async fetchPopularSongMenu() {
+    const res = await getTopPlayList({
+      cat: '流行'
+    })
+    this.setData({
+      popularSongs: res.playlists
     })
   }
 })

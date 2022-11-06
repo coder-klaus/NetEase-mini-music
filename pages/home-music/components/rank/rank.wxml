@@ -1,0 +1,5 @@
+<header title="巅峰榜" show-more="{{ false }}" />
+
+<view wx:for="{{ ranks }}" wx:key="id">
+  <rank-item rank="{{item}}" />
+</view>

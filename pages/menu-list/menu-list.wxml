@@ -1,0 +1,13 @@
+<view wx:for="{{ menuList }}" wx:key="id">
+  <header title="{{ item.cat }}" showMore="{{ false }}" class="title" />
+
+  <view class="songs">
+    <song-item
+      wx:for="{{ item.playlists }}"
+      wx:key="id" 
+      wx:for-item="song"
+      song="{{ song }}" 
+      class="song"
+    />
+  </view>
+</view>

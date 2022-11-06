@@ -1,0 +1,20 @@
+page {
+  padding: 0 20rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.songs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.song {
+  width: 49%;
+  margin-bottom: 20rpx;
+}

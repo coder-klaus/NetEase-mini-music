@@ -3,7 +3,9 @@
     "pages/home-music/home-music",
     "pages/home-video/home-video",
     "pages/video-detail/video-detail",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/recommend/recommend",
+    "pages/menu-list/menu-list"
   ],
   "window": {
     "backgroundTextStyle": "dark",

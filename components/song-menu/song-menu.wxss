@@ -1,0 +1,17 @@
+.hot-menu-list {
+  width: 750rpx;
+  margin-left: -30rpx;
+  margin-bottom: 50rpx;
+  white-space: nowrap;
+}
+
+.hot-song {
+  display: inline-block;
+  width: 220rpx;
+  margin-left: 30rpx;
+  vertical-align: top;
+}
+
+.hot-song:last-of-type {
+  margin-right: 30rpx;
+}

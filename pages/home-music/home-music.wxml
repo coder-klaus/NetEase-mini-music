@@ -27,4 +27,9 @@
   </swiper-item>
 </swiper>
 
-<Recommend />
+<recommend />
+
+<song-menu title="热门歌曲" songs="{{ hotSongs }}" />
+<song-menu title="推荐歌曲" songs="{{ popularSongs }}" />
+
+<rank />

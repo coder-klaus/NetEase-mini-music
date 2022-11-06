@@ -1,0 +1,20 @@
+<wxs src="/wxs/format.wxs" module="fmt" />
+
+<view class="rank">
+  <view class="content">
+    <view class="title">{{ rank.name }}</view>
+
+    <view class="list">
+      <view wx:for="{{ 3 }}" wx:key="*this" class="list-item">
+        <text>{{ index + 1 }}.</text>
+        <text>{{ rank.tracks[index].name }}</text>
+        <text class="singer">- {{ rank.tracks[index].ar[0].name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="album">
+    <image src="{{ rank.coverImgUrl }}" mode="widthFix" class="image" />
+    <text class="count">{{ fmt.formatCount(rank.playCount) }}</text>
+  </view>
+</view>

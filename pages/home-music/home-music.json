@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "van-search": "@vant/weapp/search/index",
-    "Recommend": "./components/recommend/recommend"
+    "recommend": "./components/recommend/recommend",
+    "song-menu": "/components/song-menu/song-menu",
+    "rank": "./components/rank/rank"
   }
 }
