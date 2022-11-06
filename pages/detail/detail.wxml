@@ -1,7 +1,9 @@
 <wxs src="/wxs/format.wxs" module="fmt" />
 
-<view>
-  <view wx:for="{{ type === 'recommend' ? recommends : rank.tracks }}" wx:key="id" class="item"> 
+<header wx:if="{{ type === 'menu' }}" info="{{ info }}" />
+
+<view class="list">
+  <view wx:for="{{ ranks }}" wx:key="id" class="item"> 
     <text class="index">{{ index + 1 }}</text>
     <view class="info">
       <view class="name">{{ item.name }}</view>

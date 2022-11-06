@@ -5,7 +5,6 @@ const ids = [3779629, 2884035, 19723756]
 
 export const rankingStore =  observable({
   ranks: [],
-  rank: {},
 
   fetchRankingAction: action(async function() {
     const res = await Promise.all(ids.map(id => fetchRankById(id) ))
@@ -13,7 +12,9 @@ export const rankingStore =  observable({
   }),
 
   findCurrentRankAction: action(function(name) {
-    this.rank = this.ranks.find(rank => rank.name === name)
-    return this.rank.name
+    return {
+      name,
+      rank: this.ranks.find(rank => rank.name === name)
+    }
   })
 })

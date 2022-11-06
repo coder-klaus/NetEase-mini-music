@@ -1,6 +1,6 @@
 <wxs src="/wxs/format.wxs" module="fmt" />
 
-<view class="song">
+<view class="song" bindtap="handleTap">
   <view class="top">
     <image src="{{ song.coverImgUrl }}" mode="widthFix" class="poster" />
     <view class="count">{{ fmt.formatCount(song.playCount) }}</view>

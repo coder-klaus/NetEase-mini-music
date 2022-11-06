@@ -1,34 +1,71 @@
 import { createStoreBindings } from 'mobx-miniprogram-bindings'
 import { rankingStore, songStore } from '../../store/index'
+import { fetchRankById } from '../../service/rank'
 
 Page({
   data: {
     type: '',
+    info: {},
+    ranks: []
   },
 
   async onLoad(options) {
-    this.rankStoreBindings = createStoreBindings(this, {
-      store: rankingStore,
-      fields: ['rank'],
-      actions: ['findCurrentRankAction']
-    })
+    let title =  ''
 
-    this.songStoreBindings = createStoreBindings(this, {
-      store: songStore,
-      fields: ['recommends']
-    })
+    if (options.type === 'rank') {
+      this.rankStoreBindings = createStoreBindings(this, {
+        store: rankingStore,
+        actions: ['findCurrentRankAction']
+      })
+
+      const { name, rank } = this.findCurrentRankAction(options.name)
+
+      title = name
+
+      this.setData({
+        ranks: rank.tracks
+      })
+    }
+
+    if (options.type === 'recommend') {
+      this.songStoreBindings = createStoreBindings(this, {
+        store: songStore,
+        actions: ['getRecommendsAction']
+      })
+
+      title = '推荐歌曲'
+      
+      this.setData({
+        ranks: this.getRecommendsAction()
+      })
+    }
+
+    if (options.type === 'menu') {
+      const { playlist } = await fetchRankById(options.id)
+      title = playlist.name
+
+      this.setData({
+        info: playlist,
+        ranks: playlist.tracks
+      })
+    }
 
     this.setData({
       type: options.type
     })
 
     wx.setNavigationBarTitle({
-      title: this.data.type === 'rank' ? this.findCurrentRankAction(options.name) : '推荐歌曲',
+      title
     })
   },
 
   onUnload() {
-    this.rankStoreBindings.destoryStoreBindings()
-    this.songStoreBindings.destoryStoreBindings()
+    if (this.data.type === 'rank') {
+      this.rankStoreBindings.destroyStoreBindings()
+    }
+
+    if (this.data.type === 'recommend') {
+      this.songStoreBindings.destroyStoreBindings()
+    }
   }
 })

@@ -1,14 +1,16 @@
-<Header title="推荐歌曲" bind:showMore="showMore" />
+<view wx:if="{{ songs.length }}">
+  <Header title="推荐歌曲" bind:showMore="showMore" />
 
-<view>
-  <view wx:for="{{ songs }}" wx:key="id" class="song">
-    <image class="poster" src="{{ item.al.picUrl }}" class="poster" />
+  <view>
+    <view wx:for="{{ songs }}" wx:key="id" class="song">
+      <image class="poster" src="{{ item.al.picUrl }}" class="poster" />
 
-    <view class="content">
-      <view class="name">{{ item.name }}</view>
-      <view class="author">{{ item.ar[0].name }}</view>
+      <view class="content">
+        <view class="name">{{ item.name }}</view>
+        <view class="author">{{ item.ar[0].name }}</view>
+      </view>
+
+      <van-icon name="arrow" color="#999" size="16px" />
     </view>
-
-    <van-icon name="arrow" color="#999" size="16px" />
   </view>
 </view>

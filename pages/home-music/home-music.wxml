@@ -1,3 +1,11 @@
+<view class="notice-bar">
+  <van-notice-bar
+    left-icon="volume-o"
+    mode="closeable"
+    text="弘峰音乐是仿网易云的小程序项目，所有数据均来自于网易云开源接口"
+  />
+</view>
+
 <van-search
   value="{{ keyword }}"
   input-align="center"
@@ -7,6 +15,7 @@
 />
 
 <swiper 
+  wx:if="{{ banners.length }}"
   autoplay 
   circular 
   indicator-dots 

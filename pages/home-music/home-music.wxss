@@ -4,6 +4,10 @@ page {
   box-sizing: border-box;
 }
 
+.notice-bar {
+  margin: 0 -30rpx
+}
+
 .swiper {
   border-radius: 16rpx;
   overflow: hidden;

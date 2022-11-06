@@ -1,9 +1,11 @@
-<header title="{{title}}" bindshowMore="showMore" />
+<view wx:if="{{ songs.length }}">
+  <header title="{{title}}" bindshowMore="showMore" />
 
-<scroll-view 
-  scroll-x 
-  enable-passive
-  class="hot-menu-list"
->
-  <song-item wx:for="{{ songs }}" wx:key="id" song="{{item}}" class="hot-song" />
-</scroll-view>
+  <scroll-view 
+    scroll-x 
+    enable-passive
+    class="hot-menu-list"
+  >
+    <song-item wx:for="{{ songs }}" wx:key="id" song="{{item}}" class="hot-song" />
+  </scroll-view>
+</view>

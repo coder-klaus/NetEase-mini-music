@@ -1,5 +1,9 @@
 page {
-  padding: 0 20rpx 30rpx;
+  padding: 0 0 30rpx;
+}
+
+.list {
+  padding: 0 20rpx;
 }
 
 .item {
