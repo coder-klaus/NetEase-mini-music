@@ -42,7 +42,14 @@ function formatTime(time) {
   return minute + ':' + second
 }
 
+function formatAc(ar) {
+  return ar.map(function(item) {
+    return item.name
+  }).join('-')
+}
+
 module.exports = {
   formatCount: formatCount,
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatAc: formatAc
 }

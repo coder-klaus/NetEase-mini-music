@@ -1,0 +1,11 @@
+<wxs src="/wxs/format.wxs" module="fmt" />
+
+<view>
+  <view wx:for="{{ type === 'recommend' ? recommends : rank.tracks }}" wx:key="id" class="item"> 
+    <text class="index">{{ index + 1 }}</text>
+    <view class="info">
+      <view class="name">{{ item.name }}</view>
+      <view class="source">{{ fmt.formatAc(item.ar) }}</view>
+    </view>
+  </view>
+</view>

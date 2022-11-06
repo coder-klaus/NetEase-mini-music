@@ -39,7 +39,7 @@
    methods: {
     showMore() {
       wx.navigateTo({
-        url: '/pages/recommend/recommend'
+        url: '/pages/detail/detail?type=recommend'
       })
     }
    }

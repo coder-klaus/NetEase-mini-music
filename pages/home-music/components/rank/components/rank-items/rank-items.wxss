@@ -28,10 +28,6 @@
   overflow: hidden;
 }
 
-.list-item .singer {
-  color: #999;
-}
-
 .album {
   position: relative;
   display: flex;

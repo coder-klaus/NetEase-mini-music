@@ -4,8 +4,8 @@
     "pages/home-video/home-video",
     "pages/video-detail/video-detail",
     "pages/search/search",
-    "pages/recommend/recommend",
-    "pages/menu-list/menu-list"
+    "pages/menu-list/menu-list",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
