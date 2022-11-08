@@ -1,0 +1,8 @@
+<view 
+  class="nav" 
+  style="margin-top: {{statusBarHeight}}px;"
+>
+  <view class="left">left</view>
+  <view class="center">center</view>
+  <view class="right"></view>
+</view>

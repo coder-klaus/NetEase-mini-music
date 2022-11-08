@@ -1,2 +1,10 @@
-<!--pages/player/player.wxml-->
-<text>pages/player/player.wxml</text>
+<view 
+  class="bg" 
+  style="background-image: url({{song.al.picUrl}});"
+>
+  <view class="mask" />
+
+  <view class="content">
+    <naviagtion-bar />
+  </view>
+</view>

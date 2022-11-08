@@ -41,6 +41,12 @@
       wx.navigateTo({
         url: '/pages/detail/detail?type=recommend'
       })
+    },
+
+    playMusic(e) {
+      wx.navigateTo({
+        url: `/pages/player/player?id=${e.currentTarget.dataset.song.id}`,
+      })
     }
    }
  })
