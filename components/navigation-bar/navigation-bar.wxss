@@ -1,11 +1,9 @@
 .nav {
-  height: 44px;
   display: flex;
   align-items: center;
 }
 
-.left,
-.right {
+.left {
   width: 120rpx;
   text-align: center;
 }
@@ -13,4 +11,16 @@
 .center {
   flex: 1;
   text-align: center;
+}
+
+.right {
+  width: 180rpx;
+}
+
+.default {
+  display: none;
+}
+
+.slot:empty + .default {
+  display: block;
 }

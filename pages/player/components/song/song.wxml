@@ -1,0 +1,47 @@
+<wxs src="/wxs/format.wxs" module="fmt" />
+
+<view class="song">
+  <view class="album">
+    <image src="{{song.al.picUrl}}" mode="widthFix"/>
+  </view>
+
+  <view class="title">{{song.name}}</view>
+  <view class="author">{{fmt.formatAc(song.ar)}}</view>
+
+  <view class="lyric">这是一行歌词</view>
+
+  <slider block-size="12" class="progress" />
+
+  <view class="time">
+    <text>03:24</text>
+    <text>05:32</text>
+  </view>
+
+  <view class="operation">
+    <image 
+      class="btn mode" 
+      src="./images/play_order.png"
+    />
+
+    <image 
+      class="btn prev" 
+      src="./images/play_prev.png"
+    />
+
+    <image 
+      class="btn pause" 
+      src="{{ isPlaying ? './images/play_pause.png' : './images/play_resume.png' }}"
+      bind:tap="changePlayerStatus"
+    />
+
+    <image 
+      class="btn next"
+      src="./images/play_next.png"
+    />
+    
+    <image 
+      class="btn music" 
+      src="./images/play_music.png"
+    />
+  </view>
+</view>

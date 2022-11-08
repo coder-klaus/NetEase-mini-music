@@ -1,0 +1,18 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabs .tab {
+  color: #aaa;
+}
+
+.tabs .active {
+  color: #fff;
+}
+
+.tabs .divider {
+  display: inline-block;
+  margin: 0 12rpx;
+}

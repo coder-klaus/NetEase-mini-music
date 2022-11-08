@@ -1,0 +1,12 @@
+<view class="tabs">
+  <view 
+    wx:for="{{tabs}}"
+    wx:key="*this"
+    class="tab {{ activeIndex === index ? 'active' : '' }}"
+    data-index="{{index}}"
+    bind:tap="changeSwiperItem"
+  >
+    <text>{{item}}</text>
+    <view wx:if="{{index !== tabs.length - 1}}" class="divider">|</view>
+  </view>
+</view>

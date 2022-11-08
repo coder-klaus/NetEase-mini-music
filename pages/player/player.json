@@ -1,6 +1,10 @@
 {
   "usingComponents": {
-    "naviagtion-bar": "/components/navigation-bar/navigation-bar"
+    "naviagtion-bar": "/components/navigation-bar/navigation-bar",
+    "song": "./components/song/song",
+    "lyric": "./components/lyric/lyric",
+    "tabs": "./components/tabs/tabs"
   },
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
 }

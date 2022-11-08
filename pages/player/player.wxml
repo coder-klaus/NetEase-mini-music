@@ -5,6 +5,27 @@
   <view class="mask" />
 
   <view class="content">
-    <naviagtion-bar />
+    <naviagtion-bar>
+      <view class="center" slot="center">
+        <tabs 
+          tabs="{{tabs}}" 
+          activeIndex="{{activeIndex}}" 
+          bind:changeSwiperItem="changeSwiperItem" 
+        />
+      </view>
+    </naviagtion-bar>
+
+    <swiper
+      current="{{ activeIndex }}" 
+      style="height: {{ clientHeight }}px"
+      bind:change="handleSwiperChange"
+    >
+      <swiper-item>
+        <song song="{{song}}" />
+      </swiper-item>
+      <swiper-item>
+        <lyric />
+      </swiper-item>
+    </swiper>
   </view>
 </view>

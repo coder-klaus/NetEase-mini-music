@@ -9,13 +9,13 @@
     />
     
     <view class="info">
-      <span class="count">
+      <text class="count">
         {{ fmt.formatCount(mv.playCount) }}
-      </span>
+      </text>
 
-      <span>
+      <text>
         {{ fmt.formatTime(mv.mv.videos[0].duration) }}
-      </span>
+      </text>
     </view>
   </view>
   <view class="content">{{ mv.name }} - {{ mv.artistName }}</view>

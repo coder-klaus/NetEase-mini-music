@@ -3,15 +3,24 @@ import {
   getLyricById
 } from '../../service/play'
 
+const app = getApp()
+
 Page({
   data: {
-    song: {}
+    song: {},
+    clientHeight: 0,
+    activeIndex: 0,
+    tabs: ['歌曲', '歌词']
   },
 
   onLoad(options) {
     const id = options.id
     this.fetchDetail(id)
     // this.fetchLyric(id)
+
+    this.setData({
+      clientHeight: app.globalData.clientHeight
+    })
   },
 
   async fetchDetail(id) {
@@ -25,5 +34,17 @@ Page({
   async fetchLyric(id) {
     const res = await getLyricById(id)
     console.log(res.lrc.lyric);
+  },
+
+  changeSwiperItem(e) {
+    this.setData({
+      activeIndex: e.detail
+    })
+  },
+
+  handleSwiperChange(e) {
+    this.setData({
+      activeIndex: e.detail.current
+    })
   }
 })
