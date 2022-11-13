@@ -25,9 +25,10 @@
 
   <view class="operation">
     <image 
+      wx:if="{{modeNames[playMode]}}"
       class="btn mode" 
       src="{{'./images/play_' + modeNames[playMode] + '.png'}}"
-      bindtap="changePlayMode"
+      bindtap="changePlayModeAction"
     />
 
     <image 

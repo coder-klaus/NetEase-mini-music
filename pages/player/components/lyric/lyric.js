@@ -1,16 +1,18 @@
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
+import { playStore} from '../../../../store/index'
+
 const app = getApp()
 
 Component({
-  properties: {
-    lyrics: {
-      type: Array,
-      value: []
-    },
+  behaviors: [storeBindingsBehavior],
 
-    currentLyricIndex: {
-      type: Number,
-      value: 0
-    }
+  storeBindings: {
+    store: playStore,
+
+    fields: [
+      'lyrics',
+      'currentLyricIndex'
+    ]
   },
 
   data: {

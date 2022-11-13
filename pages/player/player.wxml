@@ -1,6 +1,6 @@
 <view 
   class="bg" 
-  style="background-image: url({{song.al.picUrl}});"
+  style="background-image: url({{activeSong.al.picUrl}});"
 >
   <view class="mask" />
 
@@ -21,22 +21,10 @@
       bindchange="handleSwiperChange"
     >
       <swiper-item>
-        <song 
-          wx:if="{{song.id && lyrics.length}}" 
-          song="{{song}}" 
-          lyrics="{{lyrics}}" 
-          playMode="{{playMode}}"
-          bindchangeCurrentLyricIndex="changeCurrentLyricIndex"
-          bindchangeSong="changeSong"
-          bindchangePlayMode="changePlayMode"
-        />
+        <song wx:if="{{activeSong.id && lyrics.length}}" />
       </swiper-item>
       <swiper-item>
-        <lyric 
-          wx:if="{{lyrics.length}}" 
-          lyrics="{{lyrics}}"
-          currentLyricIndex="{{currentLyricIndex}}"
-        />
+        <lyric wx:if="{{lyrics.length}}" />
       </swiper-item>
     </swiper>
   </view>
