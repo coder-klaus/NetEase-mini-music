@@ -1,5 +1,5 @@
 import { createStoreBindings } from 'mobx-miniprogram-bindings'
-import { rankingStore, songStore } from '../../store/index'
+import { rankingStore, songStore, playStore } from '../../store/index'
 import { fetchRankById } from '../../service/rank'
 
 Page({
@@ -50,6 +50,11 @@ Page({
       })
     }
 
+    this.playStoreBindings = createStoreBindings(this,  {
+      store: playStore,
+      actions: ['postPlayListAction']
+    })
+
     this.setData({
       type: options.type
     })
@@ -67,5 +72,16 @@ Page({
     if (this.data.type === 'recommend') {
       this.songStoreBindings.destroyStoreBindings()
     }
+  },
+
+  playMusic(e) {
+    this.postPlayListAction({
+      list: this.data.ranks,
+      currentIndex: e.currentTarget.dataset.index
+    })
+
+    wx.navigateTo({
+      url: `/pages/player/player?id=${e.currentTarget.dataset.id}`
+    })
   }
 })

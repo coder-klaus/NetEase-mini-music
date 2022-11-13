@@ -1,38 +1,8 @@
- import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
- import { songStore } from '../../../../store/index'
- 
  Component({
-  behaviors: [storeBindingsBehavior],
-
-  storeBindings: {
-    store: songStore,
-
-    fields: {
-      recommends: 'recommends'
-    },
-
-    actions: {
-      fetchRecommendSongsAction: 'fetchRecommendSongsAction'
-    }
-  },
-
-  data: {
-    songs: []
-  },
-
-  observers: {
-    recommends(v) {
-      if (v.length) {
-        this.setData({
-          songs: v.slice(0, 6)
-        })
-      }
-    }
-  },
-
-  lifetimes: {
-    created() {
-      this.fetchRecommendSongsAction()
+  properties: {
+    songs: {
+      type: Array,
+      value: []
     }
   },
 
@@ -44,6 +14,8 @@
     },
 
     playMusic(e) {
+      this.triggerEvent('getCurrentIndex', e.currentTarget.dataset.index)
+
       wx.navigateTo({
         url: `/pages/player/player?id=${e.currentTarget.dataset.song.id}`,
       })

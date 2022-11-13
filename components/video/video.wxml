@@ -1,6 +1,6 @@
 <wxs src='/wxs/format.wxs' module="fmt"></wxs>
 
-<view class="mv" bind:tap="handleTap">
+<view class="mv" bindtap="handleTap">
   <view class="album">
     <image 
       class="cover" 

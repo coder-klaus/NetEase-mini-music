@@ -1,11 +1,12 @@
 <view wx:if="{{ songs.length }}">
-  <Header title="推荐歌曲" bind:showMore="showMore" />
+  <Header title="推荐歌曲" bindshowMore="showMore" />
 
   <view 
     wx:for="{{ songs }}" 
     wx:key="id" 
     class="song" 
-    bind:tap="playMusic"
+    bindtap="playMusic"
+    data-index="{{ index }}"
     data-song="{{ item }}"
   >
     <image 

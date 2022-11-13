@@ -29,7 +29,7 @@ function formatTime(time) {
   time = parseInt(time) / 1000
 
   var minute = parseInt(time / 60)
-  var second = time % 60
+  var second = parseInt(time % 60)
 
   if (minute < 10) {
     minute = padStart(minute, 2, '0')

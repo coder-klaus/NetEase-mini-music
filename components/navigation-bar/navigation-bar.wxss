@@ -4,8 +4,8 @@
 }
 
 .left {
-  width: 120rpx;
-  text-align: center;
+  width: 180rpx;
+  margin-left: 20rpx;
 }
 
 .center {

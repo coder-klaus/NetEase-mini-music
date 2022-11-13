@@ -10,7 +10,7 @@
         <tabs 
           tabs="{{tabs}}" 
           activeIndex="{{activeIndex}}" 
-          bind:changeSwiperItem="changeSwiperItem" 
+          bindchangeSwiperItem="changeSwiperItem" 
         />
       </view>
     </naviagtion-bar>
@@ -18,13 +18,25 @@
     <swiper
       current="{{ activeIndex }}" 
       style="height: {{ clientHeight }}px"
-      bind:change="handleSwiperChange"
+      bindchange="handleSwiperChange"
     >
       <swiper-item>
-        <song song="{{song}}" />
+        <song 
+          wx:if="{{song.id && lyrics.length}}" 
+          song="{{song}}" 
+          lyrics="{{lyrics}}" 
+          playMode="{{playMode}}"
+          bindchangeCurrentLyricIndex="changeCurrentLyricIndex"
+          bindchangeSong="changeSong"
+          bindchangePlayMode="changePlayMode"
+        />
       </swiper-item>
       <swiper-item>
-        <lyric />
+        <lyric 
+          wx:if="{{lyrics.length}}" 
+          lyrics="{{lyrics}}"
+          currentLyricIndex="{{currentLyricIndex}}"
+        />
       </swiper-item>
     </swiper>
   </view>

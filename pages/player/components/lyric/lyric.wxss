@@ -1,1 +1,24 @@
-/* pages/player/components/lyric/lyric.wxss */
+.lyrics {
+  color: #e5e5e5;
+  font-size: 28rpx;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+.lyrics ::-webkit-scrollbar {
+  display: none;
+}
+
+.lyrics .lyric {
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.lyrics .lyric.active {
+  color: #0f0;
+}

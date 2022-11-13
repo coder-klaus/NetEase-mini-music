@@ -10,7 +10,7 @@
   value="{{ keyword }}"
   input-align="center"
   placeholder="搜索你喜欢的歌曲"
-  bind:click-input="onClick"
+  bindclickInput="onClick"
   class="search"
 />
 
@@ -31,12 +31,12 @@
       src="{{ item.imageUrl }}" 
       class="swiper-image" 
       mode="widthFix" 
-      bind:load="handleImageLoad"  
+      bindload="handleImageLoad"  
     />
   </swiper-item>
 </swiper>
 
-<recommend />
+<recommend songs="{{ recommendSongs }}" bindgetCurrentIndex="getCurrentIndex" />
 
 <song-menu title="热门歌曲" songs="{{ hotSongs }}" />
 <song-menu title="推荐歌曲" songs="{{ popularSongs }}" />

@@ -7,6 +7,7 @@ export const songStore = observable({
   fetchRecommendSongsAction: action(async function() {
     const res = await getRecommendSongs(3778678)
     this.recommends = res.playlist.tracks
+    return this.recommends
   }),
 
   getRecommendsAction: action(function() {

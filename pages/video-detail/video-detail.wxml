@@ -14,7 +14,7 @@
   <view class="recommend">
     <view class="recommend-title">推荐视频</view>
 
-    <view wx:for="{{ relatedVideos }}" wx:key="vid" class="video" bind:tap="handleRecommendTap" data-id="{{ item.vid }}">
+    <view wx:for="{{ relatedVideos }}" wx:key="vid" class="video" bindtap="handleRecommendTap" data-id="{{ item.vid }}">
       <view class="poster">
         <image src="{{ item.coverUrl }}" mode="aspectFill" />
         <view class="count">{{ fmt.formatCount(item.playTime) }}</view>

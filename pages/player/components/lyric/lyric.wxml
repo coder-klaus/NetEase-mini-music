@@ -1,2 +1,15 @@
-<!--pages/player/components/lyric/lyric.wxml-->
-<text>pages/player/components/lyric/lyric.wxml</text>
+<scroll-view 
+  scroll-y 
+  scroll-top="{{ currentLyricIndex * 35 }}"
+  scroll-with-animation	
+  class="lyrics"
+>
+  <view 
+    wx:for="{{lyrics}}"
+    wx:key="time"
+    class="lyric {{ currentLyricIndex === index ? 'active' : '' }}"
+    style="padding-top: {{ index === 0 ? offset : 0 }}px; padding-bottom: {{ index === lyrics.length - 1 ? offset : 0 }}px;"
+  >
+    {{ item.lyric }}  
+  </view>
+</scroll-view>

@@ -1,6 +1,6 @@
 <wxs src="/wxs/format.wxs" module="fmt" />
 
-<view class="rank" bind:tap="onTap" data-name="{{ rank.name }}">
+<view class="rank" bindtap="onTap" data-name="{{ rank.name }}">
   <view class="content">
     <view class="title">{{ rank.name }}</view>
 
