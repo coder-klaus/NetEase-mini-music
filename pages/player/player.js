@@ -30,7 +30,10 @@ Page({
     })
     
     const id = options.id
-    this.fetchSongInfoAction(id)
+
+    if (id) {
+      this.fetchSongInfoAction(id)
+    }
   },
 
   onUnload() {

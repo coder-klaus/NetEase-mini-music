@@ -42,3 +42,5 @@
 <song-menu title="推荐歌曲" songs="{{ popularSongs }}" />
 
 <rank />
+
+<play-bar wx:if="{{ activeSong.name || isPlaying }}" song="{{ activeSong }}" />

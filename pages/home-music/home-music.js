@@ -37,6 +37,7 @@ Page({
   storeBindings() {
     this.playStoreBindings = createStoreBindings(this, {
       store: playStore,
+      fields: ['activeSong'],
       actions: ['postPlayListAction']
     })
 

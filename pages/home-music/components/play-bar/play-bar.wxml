@@ -1,0 +1,19 @@
+<view class="play-bar">
+  <view class="left" bindtap="goDetail">
+    <image 
+      class="album roll"
+      style="animation-play-state: {{ isPlaying ? 'running' : 'paused' }};" 
+      mode="aspectFit" 
+      src="{{song.al.picUrl}}"
+    />
+    <view class="name">{{song.name}}</view>
+  </view>
+  <view class="right">
+    <image 
+      class="icon play"
+      src="/assets/images/music/{{ isPlaying ? 'pause': 'play' }}_icon.png"
+      bindtap="changeStatus"
+    />
+    <image class="icon" src="/assets/images/music/playlist_icon.png"/>
+  </view>
+</view>

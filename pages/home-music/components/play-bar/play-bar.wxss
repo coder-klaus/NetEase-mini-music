@@ -1,0 +1,57 @@
+.play-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.1);
+  background: #fafafa;
+}
+
+.left, 
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.album {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-bottom: 30rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+.icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.play {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.roll {
+  animation: roll 10s infinite;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

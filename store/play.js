@@ -5,6 +5,7 @@ import { getLyricById, getDetailByIds } from '../service/play'
 const audioContext = wx.createInnerAudioContext()
 
 const initData = {
+  oldSongId: 0,
   playMode: 0,
   currentTime: 0,
   durationTime: 0,
@@ -62,25 +63,37 @@ const playStore = observable({
   },
 
   playMusicAction() {
+    // 避免重复播放相同的歌曲
+    if (this.oldSongId === this.activeSong.id) {
+      return
+    }
+
+    this.oldSongId = this.activeSong.id
     this.durationTime = this.activeSong.dt
+
+    this.currentLyric = ''
+    this.audioProgress = 0
 
     audioContext.stop()
     audioContext.src = `https://music.163.com/song/media/outer/url?id=${this.activeSong.id}.mp3`
     audioContext.autoplay = true
 
-    audioContext.onError(err => console.log('audioContext error', err))
+    audioContext.onError(err => console.error('audioContext error', err))
 
     audioContext.onTimeUpdate(throttle(() => {
-      const currentTime = audioContext.currentTime * 1000
-      const progress = currentTime / this.durationTime * 100
-
       if (!this.isMoving) {
+        const currentTime = audioContext.currentTime * 1000
+        const progress = currentTime / this.durationTime * 100
+
         this.matchCurrentLyricAction()
 
         this.currentTime = currentTime
         this.audioProgress = progress
       }
-    }, 500))
+    }, 500, {
+      leading: false,
+      trailing: false
+    }))
 
     audioContext.onWaiting(() => {
       audioContext.pause()
@@ -196,8 +209,6 @@ const playStore = observable({
       if (whiteArr.includes(key)) continue
       this[key] = initData[key]
     }
-
-    console.log(initData.audioProgress);
   }
 })
 

@@ -1,9 +1,10 @@
 {
   "usingComponents": {
     "van-search": "@vant/weapp/search/index",
-    "recommend": "./components/recommend/recommend",
-    "song-menu": "/components/song-menu/song-menu",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
     "rank": "./components/rank/rank",
-    "van-notice-bar": "@vant/weapp/notice-bar/index"
+    "recommend": "./components/recommend/recommend",
+    "play-bar": "./components/play-bar/play-bar",
+    "song-menu": "/components/song-menu/song-menu"
   }
 }

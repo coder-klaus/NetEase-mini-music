@@ -34,12 +34,6 @@ Component({
     }
   },
 
-  lifetimes: {
-    attached() {
-      this.playMusicAction()
-    }
-  },
-
   methods: {
     changePlayerStatus() {
       this.changeStoreField('isPlaying', !this.data.isPlaying)
@@ -50,12 +44,17 @@ Component({
       const currentTime = this.data.durationTime * progress / 100
 
       this.seekTimeAction(currentTime / 1000)
-      this.changeStoreField('currentTime', this.data.durationTime * e.detail.value / 100)
-      this.changeStoreField('isMoving', false)
+      
+      if (this.isMoving) {
+        this.changeStoreField('isMoving', false)
+      } else {
+        this.changeStoreField('currentTime', this.data.durationTime * e.detail.value / 100)
+      }
     },
 
     sliderBindchanging: throttle(function(e) {
       this.changeStoreField('isMoving',true)
+      this.changeStoreField('currentTime', this.data.durationTime * e.detail.value / 100)
     }, 500),
 
     prevSong() {
