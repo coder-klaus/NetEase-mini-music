@@ -1,6 +1,6 @@
 import { throttle } from 'underscore'
 import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
-import { playStore} from '../../../../store/index'
+import { playStore} from '../../../../../store/index'
 
 Component({
   behaviors: [storeBindingsBehavior],
@@ -16,6 +16,7 @@ Component({
       song: 'activeSong',
       playMode: 'playMode',
       isPlaying: 'isPlaying',
+      isMoving: 'isMoving',
       audioProgress: 'audioProgress'
     },
     actions: {
@@ -30,7 +31,9 @@ Component({
 
   observers: {
     'song.id'() {
-      this.playMusicAction()
+      if (this.data.isAttached) {
+        this.playMusicAction()
+      }
     }
   },
 
@@ -44,8 +47,8 @@ Component({
       const currentTime = this.data.durationTime * progress / 100
 
       this.seekTimeAction(currentTime / 1000)
-      
-      if (this.isMoving) {
+
+      if (this.data.isMoving) {
         this.changeStoreField('isMoving', false)
       } else {
         this.changeStoreField('currentTime', this.data.durationTime * e.detail.value / 100)
@@ -53,9 +56,11 @@ Component({
     },
 
     sliderBindchanging: throttle(function(e) {
-      this.changeStoreField('isMoving',true)
+      this.changeStoreField('isMoving', true)
       this.changeStoreField('currentTime', this.data.durationTime * e.detail.value / 100)
-    }, 500),
+    }, 500, {
+      trailing: false
+    }),
 
     prevSong() {
       this.changeActiveSongAction(-1)

@@ -81,22 +81,29 @@ const playStore = observable({
     audioContext.onError(err => console.error('audioContext error', err))
 
     audioContext.onTimeUpdate(throttle(() => {
-      if (!this.isMoving) {
-        const currentTime = audioContext.currentTime * 1000
-        const progress = currentTime / this.durationTime * 100
-
-        this.matchCurrentLyricAction()
-
-        this.currentTime = currentTime
-        this.audioProgress = progress
+      if (this.isMoving || this.isSeeking) {
+        return
       }
+
+      const currentTime = audioContext.currentTime * 1000
+      const progress = currentTime / this.durationTime * 100
+
+      this.matchCurrentLyricAction()
+
+      this.currentTime = currentTime
+      this.audioProgress = progress
     }, 500, {
-      leading: false,
       trailing: false
     }))
 
     audioContext.onWaiting(() => {
-      audioContext.pause()
+      if (!audioContext.paused) {
+        audioContext.pause()
+      }
+    })
+
+    audioContext.onSeeked(() => {
+      this.isSeeking = false
     })
 
     audioContext.onCanplay(() => {
@@ -127,6 +134,7 @@ const playStore = observable({
   },
 
   seekTimeAction(time = 0) {
+    this.isSeeking = true
     audioContext.seek(time)
   },
 

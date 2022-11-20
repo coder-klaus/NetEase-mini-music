@@ -2,11 +2,23 @@
   "pages": [
     "pages/home-music/home-music",
     "pages/home-video/home-video",
-    "pages/video-detail/video-detail",
     "pages/search/search",
     "pages/menu-list/menu-list",
-    "pages/detail/detail",
-    "pages/player/player"
+    "pages/detail/detail"
+  ],
+  "subPackages": [
+    {
+      "root": "video-detail",
+      "pages": [
+        "pages/video-detail/video-detail"
+      ]
+    },
+    {
+      "root": "player",
+      "pages": [
+        "pages/player/player"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "dark",

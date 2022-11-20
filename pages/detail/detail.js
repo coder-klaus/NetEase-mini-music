@@ -81,7 +81,7 @@ Page({
     })
 
     wx.navigateTo({
-      url: `/pages/player/player?id=${e.currentTarget.dataset.id}`
+      url: `/player/pages/player/player?id=${e.currentTarget.dataset.id}`
     })
   }
 })

@@ -17,7 +17,7 @@
       this.triggerEvent('getCurrentIndex', e.currentTarget.dataset.index)
 
       wx.navigateTo({
-        url: `/pages/player/player?id=${e.currentTarget.dataset.song.id}`,
+        url: `/player/pages/player/player?id=${e.currentTarget.dataset.song.id}`,
       })
     }
    }

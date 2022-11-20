@@ -1,5 +1,5 @@
 import { createStoreBindings } from 'mobx-miniprogram-bindings'
-import { playStore } from '../../store/index'
+import { playStore } from '../../../store/index'
 
 const app = getApp()
 

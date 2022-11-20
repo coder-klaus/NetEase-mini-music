@@ -4,7 +4,7 @@ import {
   getRelatedVideosById,
   getVideoById,
   getVideoDetailById
-} from '../../service/video'
+} from '../../../service/video'
 
 Page({
   data: {
@@ -73,7 +73,7 @@ Page({
 
   handleRecommendTap(e) {
     wx.navigateTo({
-      url: `/pages/video-detail/video-detail?id=${e.currentTarget.dataset.id}&relatedvideo=true`
+      url: `/video-detail/pages/video-detail/video-detail?id=${e.currentTarget.dataset.id}&relatedvideo=true`
     })
   }
 })

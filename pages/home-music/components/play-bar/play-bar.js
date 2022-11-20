@@ -35,7 +35,7 @@ Component({
 
     goDetail() {
       wx.navigateTo({
-        url: '/pages/player/player',
+        url: '/player/pages/player/player',
       })
     }
   }
